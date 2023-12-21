@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: FIRST-SERVICE
+          uri: lb://FIRST-SERVICE
+          predicates:
+            - Path=/hello/**
+eureka:
+  instance:
+    hostName: localhost
